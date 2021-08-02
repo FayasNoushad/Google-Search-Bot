@@ -23,8 +23,8 @@ def google(query):
     informations = info["results"]
     results = []
     for info in informations:
-        text = f"Title: {info['title']}"
-        text += f"\nDescription: {info['description']}"
+        text = f"**Title:** `{info['title']}`"
+        text += f"\n**Description:** `{info['description']}`"
         results.append({"text": text, "link": info['link']})
     return results
 
