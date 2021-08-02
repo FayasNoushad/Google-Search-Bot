@@ -2,6 +2,7 @@
 
 import os
 import requests
+from requests.utils import requote_uri
 from pyrogram import Client
 
 
@@ -18,7 +19,7 @@ Bot = Client(
 
 def google(query):
     query = query.replace(" ", "+")
-    r = requests.get(API + query)
+    r = requests.get(requote_uri(API + query))
     info = r.json()
     informations = info["results"]
     results = []
