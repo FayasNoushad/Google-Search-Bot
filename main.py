@@ -1,5 +1,6 @@
 # Author: Fayas (https://github.com/FayasNoushad) (@FayasNoushad)
 
+import requests
 from pyrogram import Client
 
 
