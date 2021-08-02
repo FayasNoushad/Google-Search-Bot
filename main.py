@@ -16,4 +16,17 @@ Bot = Client(
 )
 
 
+def google(query):
+    query = query.replace(" ", "+")
+    r = requests.get(API + query)
+    info = r.json()
+    informations = info["results"]
+    results = []
+    for info in informations:
+        text = f"Title: {info['title']}"
+        text += f"\nDescription: {info['description']}"
+        results.append({"text": text, "link": info['link']})
+    return results
+
+
 Bot.run()
