@@ -64,7 +64,6 @@ async def inline(bot, update):
             )
         )
     await update.answer(answers)
-                
 
 
 def google(query):
