@@ -17,6 +17,20 @@ Bot = Client(
 )
 
 
+START_TEXT = """Hello {}
+I am a movie information finder bot.
+
+> `I can find information of all movies.`
+
+Made by @FayasNoushad"""
+
+JOIN_BUTTON = [
+    InlineKeyboardButton(
+        text='⚙ Join Updates Channel ⚙',
+        url='https://telegram.me/FayasNoushad'
+    )
+]
+
 
 @Bot.on_inline_query()
 async def inline(bot, update):
@@ -32,10 +46,10 @@ async def inline(bot, update):
                     disable_web_page_preview=True
                 ),
                 reply_markup=InlineKeyboardMarkup(
-                    InlineKeyboardButton(
-                        text="Link",
-                        url=result["link"]
-                    )
+                    [
+                        [InlineKeyboardButton(text="Link", url=result["link"])],
+                        JOIN_BUTTON
+                    ]
                 )
             )
         )
