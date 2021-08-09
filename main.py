@@ -18,9 +18,9 @@ Bot = Client(
 
 
 START_TEXT = """Hello {}
-I am a movie information finder bot.
+I am a google search bot.
 
-> `I can find information of all movies.`
+> `I can search from google. Use me in inline.`
 
 Made by @FayasNoushad"""
 
@@ -30,6 +30,16 @@ JOIN_BUTTON = [
         url='https://telegram.me/FayasNoushad'
     )
 ]
+
+
+@Bot.on_message(filters.private & filters.command(["start"]))
+async def start(bot, update):
+    await update.reply_text(
+        text=START_TEXT.format(update.from_user.mention),
+        reply_markup=BUTTONS,
+        disable_web_page_preview=True,
+        quote=True
+    )
 
 
 @Bot.on_inline_query()
@@ -57,8 +67,7 @@ async def inline(bot, update):
 
 
 def google(query):
-    query = query.replace(" ", "+")
-    r = requests.get(requote_uri(API + query))
+    r = requests.get(API + requote_uri(query))
     info = r.json()
     informations = info["results"]
     results = []
