@@ -83,7 +83,7 @@ async def inline(bot, update):
 
 def google(query):
     r = requests.get(API + requote_uri(query))
-    informations = r.json()["results"]
+    informations = r.json()["results"][:50]
     results = []
     for info in informations:
         text = f"**Title:** `{info['title']}`"
