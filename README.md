@@ -1,21 +1,5 @@
-```
-Made with Python3
-(C) @FayasNoushad
-Copyright permission under MIT License
-License -> https://github.com/FayasNoushad/Google-Search-Bot/blob/main/LICENSE
-```
-
----
-
-## Deploy
-
-```sh
-git clone https://github.com/FayasNoushad/Google-Search-Bot/tree/main
-cd Google-Search-Bot
-pip3 install -r requirements.txt
-# <Create Variables appropriately>
-python3 main.py
-```
+# Google Search Bot
+A google search telegram bot
 
 ---
 
@@ -27,10 +11,8 @@ python3 main.py
 
 ---
 
-## Credits
+## API
 
-- [Fayas Noushad](https://github.com/FayasNoushad)
-- [Pyrogram](https://github.com/pyrogram/pyrogram)
-- [Google API](https://api.abirhasan.wtf/google)
+https://api.abirhasan.wtf/google
 
 ---
