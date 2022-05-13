@@ -2,23 +2,27 @@
 
 import os
 import requests
+from dotenv import load_dotenv
 from requests.utils import requote_uri
 from pyrogram import Client, filters
 from pyrogram.types import *
 
+
+load_dotenv()
 API = "https://api.abirhasan.wtf/google?query="
 
 
 Bot = Client(
     "Google-Search-Bot",
-    bot_token = os.environ["BOT_TOKEN"],
-    api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"]
+    bot_token=os.environ.get("BOT_TOKEN"),
+    api_id=int(os.environ.get("API_ID")),
+    api_hash=os.environ.get("API_HASH")
 )
 
 
 START_TEXT = """Hello {}
-I am a google search bot.
+I am a google search bot. \
+Send a text for google search result.
 
 > `I can search from google. Use me in inline.`
 
